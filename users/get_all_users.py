@@ -3,6 +3,7 @@ import websockets
 from connections import users_connect, users_cursor
 from router_init import router
 
+
 @router.route('/get_all_users')
 async def get_all_users(ws, path):
     try:
@@ -13,6 +14,7 @@ async def get_all_users(ws, path):
             pass
     finally:
         pass
+
 
 async def f_get_all_users():
     all_users = []
@@ -26,8 +28,6 @@ async def f_get_all_users():
         user_id = u['id']
         id_position = u['position']
         id_department = u['department']
-
-
 
         sql_position = 'SELECT position FROM positions WHERE id = %s AND department = %s'
         val_position = (id_position, id_department)

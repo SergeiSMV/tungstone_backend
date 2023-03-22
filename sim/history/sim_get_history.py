@@ -23,7 +23,7 @@ async def f_sim_get_history(data):
     item_id = data['itemId']
     history_list = []
 
-    sql = 'SELECT * FROM history  WHERE item_id = %s'
+    sql = 'SELECT * FROM history WHERE item_id = %s'
     val = (item_id,)
     sim_connect.ping(reconnect=True)
     sim_cursor.execute(sql, val)

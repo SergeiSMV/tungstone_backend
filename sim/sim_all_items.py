@@ -6,10 +6,8 @@ from router_init import router
 import os
 
 from sim.sql_functions.get_color_values import get_color_values
-from sim.sql_functions.get_name_values import get_name_values
+from sim.sql_functions.get_nm_item_values import get_nm_item_values
 from sim.sql_functions.get_place_values import get_place_values
-from sim.sql_functions.get_producer_values import get_producer_values
-from sim.sql_functions.get_unit_values import get_unit_values
 
 CLIENTS_SIM = {}
 
@@ -47,7 +45,7 @@ async def f_sim_all_items(broadcast=False):
     for items in result:
 
         place_values = await get_place_values(items['place'])
-        name_values = await get_name_values(items['name'])
+        name_values = await get_nm_item_values(items['name'])
 
         itemId = items['id']
         place = place_values['place']
@@ -55,10 +53,10 @@ async def f_sim_all_items(broadcast=False):
         category = name_values['category']
         name = name_values['name']
         color = '' if items['color'] == 0 else await get_color_values(items['color'])
-        producer = await get_producer_values(items['producer'])
+        producer = name_values['producer']
         quantity = items['quant']
         reserve = items['reserve']
-        unit = await get_unit_values(items['unit'])
+        unit = name_values['unit']
         fifo = items['fifo'].strftime('%d.%m.%Y')
         author = items['author']
         status = items['status']

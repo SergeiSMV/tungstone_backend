@@ -29,3 +29,10 @@ from sim.storage_settings.sim_get_nomenclature import sim_get_nomenclature
 from sim.storage_settings.sim_update_nomenclature import sim_update_nomenclature
 from sim.storage_settings.sim_create_nomenclature import sim_create_nomenclature
 from sim.storage_settings.sim_get_map_colors import sim_get_map_colors
+
+# раздел добавления ТМЦ на склад СиМ
+from sim.add_item.sim_nm_categories import sim_nm_categories
+from sim.add_item.sim_nm_names import sim_nm_names
+from sim.add_item.sim_nm_producers import sim_nm_producers
+from sim.add_item.sim_nm_units import sim_nm_units
+from sim.add_item.add_item import add_item
